@@ -25,6 +25,8 @@ const registerEmployee = async (req, res) => {
         department_id,
       } = req.body;
 
+      console.log(id)
+
       // Check if all required fields are present
       if (
         !id ||

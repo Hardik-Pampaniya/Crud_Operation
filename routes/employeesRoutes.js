@@ -11,14 +11,14 @@ const authenticateUser = require("../middleware/authMiddleware");
 const profilePicUploadMiddleware = require("../middleware/profilePicUploadMiddleware");
 
 
-employeesRoutes.post("/register", resgisterEmployee);
+employeesRoutes.post("/register", authenticateUser, resgisterEmployee);
 employeesRoutes.post("/login", loginEmployee);
 
 
-employeesRoutes.get("/getEmployees", authenticateUser, getEmployees);
-employeesRoutes.post("/getEmployeeById", authenticateUser, getEmployeeById);
+employeesRoutes.get("/getEmployees", getEmployees);
+employeesRoutes.post("/getEmployeeById",  getEmployeeById);
 
-employeesRoutes.post("/updateEmployee", authenticateUser, updateEmployee);
-employeesRoutes.post("/deleteEmployee", authenticateUser, deleteEmployee);
+employeesRoutes.post("/updateEmployee",  updateEmployee);
+employeesRoutes.post("/deleteEmployee",  deleteEmployee);
 
 module.exports = employeesRoutes;
